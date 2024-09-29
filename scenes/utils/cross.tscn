@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://s6bw2xtk1ik2"]
+
+[ext_resource type="Texture2D" uid="uid://b64r78du6wvsy" path="res://assets/cross.png" id="1_l1kd3"]
+
+[node name="Cross" type="Sprite2D" groups=["circles", "crosses"]]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_l1kd3")

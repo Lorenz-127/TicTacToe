@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmncj1wsom3hh"]
+
+[ext_resource type="Script" path="res://scenes/game/main.gd" id="1_sd0nc"]
+[ext_resource type="PackedScene" uid="uid://bmkvtpffaygdy" path="res://scenes/utils/circle.tscn" id="2_6jhcj"]
+[ext_resource type="PackedScene" uid="uid://dapmapucl4flg" path="res://scenes/utils/board.tscn" id="2_lu3vh"]
+[ext_resource type="PackedScene" uid="uid://s6bw2xtk1ik2" path="res://scenes/utils/cross.tscn" id="3_3rr6u"]
+[ext_resource type="Texture2D" uid="uid://glewfput77" path="res://assets/raster.png" id="5_7i3kb"]
+[ext_resource type="PackedScene" uid="uid://cd2xadr672516" path="res://scenes/menus/start_menu/start_menu.tscn" id="5_ackvv"]
+[ext_resource type="PackedScene" uid="uid://7jebf3xt4f4w" path="res://scenes/menus/game_over/game_over.tscn" id="5_g81tx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7hk2"]
+bg_color = Color(0.290196, 0.305882, 0.411765, 1)
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.133333, 0.133333, 0.231373, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_2tqo4"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2seom"]
+bg_color = Color(0.603922, 0.54902, 0.596078, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.497474, 0.497474, 0.497473, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.673538, 0.542494, 0.514619, 0.6)
+shadow_size = 4
+shadow_offset = Vector2(2, 4)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_sd0nc")
+circle_scene = ExtResource("2_6jhcj")
+cross_scene = ExtResource("3_3rr6u")
+
+[node name="Board" parent="." instance=ExtResource("2_lu3vh")]
+position = Vector2(300, 300)
+texture = ExtResource("5_7i3kb")
+
+[node name="SidePanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(400, 600)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k7hk2")
+
+[node name="PlayerLabel" type="Label" parent="."]
+offset_left = 600.0
+offset_top = 120.0
+offset_right = 1000.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(0.94902, 0.913725, 0.894118, 1)
+theme_override_colors/font_shadow_color = Color(0.133333, 0.133333, 0.231373, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("SystemFont_2tqo4")
+theme_override_font_sizes/font_size = 48
+text = "Next Player:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerPanel" type="Panel" parent="."]
+offset_left = 700.0
+offset_top = 200.0
+offset_right = 900.0
+offset_bottom = 400.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2seom")
+
+[node name="StartMenu" parent="." instance=ExtResource("5_ackvv")]
+
+[node name="GameOver" parent="." instance=ExtResource("5_g81tx")]
+process_mode = 2
+visible = false
+
+[connection signal="start_game" from="StartMenu" to="." method="_on_start_menu_start_game"]
+[connection signal="main_menu" from="GameOver" to="." method="_on_game_over_main_menu"]
+[connection signal="restart_game" from="GameOver" to="." method="_on_game_over_restart_game"]

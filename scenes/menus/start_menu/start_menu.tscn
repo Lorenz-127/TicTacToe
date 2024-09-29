@@ -1,0 +1,133 @@
+[gd_scene load_steps=7 format=3 uid="uid://cd2xadr672516"]
+
+[ext_resource type="Script" path="res://scenes/menus/start_menu/start_menu.gd" id="1_ua2lr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnf8o"]
+bg_color = Color(0.290196, 0.305882, 0.411765, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.133333, 0.133333, 0.231373, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_8hoi4"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="Theme" id="Theme_mcq5p"]
+
+[sub_resource type="SystemFont" id="SystemFont_bcrf7"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th3p5"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.788235, 0.678431, 0.654902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133333, 0.133333, 0.231373, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0.603922, 0.658824, 0.847059, 1)
+shadow_offset = Vector2(2, 1)
+
+[node name="StartMenu" type="CanvasLayer"]
+script = ExtResource("1_ua2lr")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mnf8o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TitleContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Spacer" type="Control" parent="MarginContainer/TitleContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/TitleContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94902, 0.913725, 0.894118, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("SystemFont_8hoi4")
+theme_override_font_sizes/font_size = 48
+text = "Tic Tac Toe"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="MarginContainer/TitleContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = SubResource("Theme_mcq5p")
+theme_override_colors/font_color = Color(0.133333, 0.133333, 0.231373, 1)
+theme_override_fonts/font = SubResource("SystemFont_bcrf7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_th3p5")
+text = "Start Game"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = SubResource("Theme_mcq5p")
+theme_override_colors/font_color = Color(0.133333, 0.133333, 0.231373, 1)
+theme_override_fonts/font = SubResource("SystemFont_bcrf7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_th3p5")
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/ButtonContainer"]
+layout_mode = 2
+theme = SubResource("Theme_mcq5p")
+theme_override_colors/font_color = Color(0.133333, 0.133333, 0.231373, 1)
+theme_override_fonts/font = SubResource("SystemFont_bcrf7")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_th3p5")
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
