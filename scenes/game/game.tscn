@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmncj1wsom3hh"]
+[gd_scene load_steps=12 format=3 uid="uid://bmncj1wsom3hh"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_6j3sw"]
 [ext_resource type="PackedScene" uid="uid://bmkvtpffaygdy" path="res://scenes/utils/circle.tscn" id="2_3qkbh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dapmapucl4flg" path="res://scenes/utils/board.tscn" id="4_ulbfj"]
 [ext_resource type="PackedScene" uid="uid://cd2xadr672516" path="res://scenes/menus/start_menu/start_menu.tscn" id="5_ckv4p"]
 [ext_resource type="PackedScene" uid="uid://7jebf3xt4f4w" path="res://scenes/menus/game_over/game_over.tscn" id="6_yvhui"]
+[ext_resource type="PackedScene" uid="uid://d1ovwtgk83d00" path="res://scenes/menus/options_menu/options_menu.tscn" id="7_0ojgu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7hk2"]
 bg_color = Color(0.290196, 0.305882, 0.411765, 1)
@@ -13,6 +14,9 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.133333, 0.133333, 0.231373, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_8t1hy"]
+font_names = PackedStringArray("Impact")
 
 [sub_resource type="SystemFont" id="SystemFont_2tqo4"]
 font_names = PackedStringArray("Impact")
@@ -51,6 +55,23 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_k7hk2")
 
+[node name="ModeLabel" type="Label" parent="."]
+offset_left = 600.0
+offset_top = 50.0
+offset_right = 1000.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(0.94902, 0.913725, 0.894118, 1)
+theme_override_colors/font_shadow_color = Color(0.133333, 0.133333, 0.231373, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = SubResource("SystemFont_8t1hy")
+theme_override_font_sizes/font_size = 48
+text = "Mode: PVP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="PlayerLabel" type="Label" parent="."]
 offset_left = 600.0
 offset_top = 120.0
@@ -81,6 +102,9 @@ visible = false
 
 [node name="GameOver" parent="." instance=ExtResource("6_yvhui")]
 process_mode = 2
+visible = false
+
+[node name="OptionsMenu" parent="." instance=ExtResource("7_0ojgu")]
 visible = false
 
 [connection signal="exit_game" from="StartMenu" to="." method="_on_start_menu_exit_game"]

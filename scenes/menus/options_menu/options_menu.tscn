@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd2xadr672516"]
+[gd_scene load_steps=7 format=3 uid="uid://d1ovwtgk83d00"]
 
-[ext_resource type="Script" path="res://scenes/menus/start_menu/start_menu.gd" id="1_ua2lr"]
+[ext_resource type="Script" path="res://scenes/menus/options_menu/options_menu.gd" id="1_cptph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnf8o"]
 bg_color = Color(0.290196, 0.305882, 0.411765, 1)
@@ -46,8 +46,8 @@ expand_margin_bottom = 2.0
 shadow_color = Color(0.603922, 0.658824, 0.847059, 1)
 shadow_offset = Vector2(2, 1)
 
-[node name="StartMenu" type="CanvasLayer"]
-script = ExtResource("1_ua2lr")
+[node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource("1_cptph")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
@@ -91,7 +91,7 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = SubResource("SystemFont_8hoi4")
 theme_override_font_sizes/font_size = 48
-text = "Tic Tac Toe"
+text = "Options"
 horizontal_alignment = 1
 
 [node name="Spacer2" type="Control" parent="MarginContainer/TitleContainer"]
@@ -107,7 +107,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="StartButton" type="Button" parent="MarginContainer/ButtonContainer"]
+[node name="PVEButton" type="Button" parent="MarginContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = SubResource("Theme_mcq5p")
@@ -115,9 +115,9 @@ theme_override_colors/font_color = Color(0.133333, 0.133333, 0.231373, 1)
 theme_override_fonts/font = SubResource("SystemFont_bcrf7")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_th3p5")
-text = "Start Game"
+text = "PvE"
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/ButtonContainer"]
+[node name="PVPButton" type="Button" parent="MarginContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = SubResource("Theme_mcq5p")
@@ -125,17 +125,17 @@ theme_override_colors/font_color = Color(0.133333, 0.133333, 0.231373, 1)
 theme_override_fonts/font = SubResource("SystemFont_bcrf7")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_th3p5")
-text = "Options"
+text = "PvP"
 
-[node name="ExitButton" type="Button" parent="MarginContainer/ButtonContainer"]
+[node name="BackButton" type="Button" parent="MarginContainer/ButtonContainer"]
 layout_mode = 2
 theme = SubResource("Theme_mcq5p")
 theme_override_colors/font_color = Color(0.133333, 0.133333, 0.231373, 1)
 theme_override_fonts/font = SubResource("SystemFont_bcrf7")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_th3p5")
-text = "Exit"
+text = "Back"
 
-[connection signal="pressed" from="MarginContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MarginContainer/ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MarginContainer/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContainer/PVEButton" to="." method="_on_pve_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContainer/PVPButton" to="." method="_on_pvp_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]

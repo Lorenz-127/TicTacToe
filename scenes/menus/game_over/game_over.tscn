@@ -121,6 +121,7 @@ theme_override_font_sizes/font_size = 32
 text = "Player 1 Wins!"
 
 [node name="RestartButton" type="Button" parent="GameOverPanel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -133,6 +134,7 @@ text = "Play Again"
 icon_alignment = 1
 
 [node name="BackButton" type="Button" parent="GameOverPanel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
