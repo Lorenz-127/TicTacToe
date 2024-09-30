@@ -18,13 +18,18 @@ var col_sum : int
 var diagonal1_sum : int
 var diagonal2_sum : int
 
-# start the game
-func _on_start_menu_start_game():
-	$StartMenu.hide()
-	_ready()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	show_start_menu()
+	
+func show_start_menu():
+	$StartMenu.show()
+	get_tree().paused = false
+	
+
+func game_start():
+	$StartMenu.hide()
 	board_size = $Board.texture.get_width()
 	# divide board size by 3 to get the size of individual cell
 
@@ -33,13 +38,11 @@ func _ready():
 		# divide board size by 3 to get the size of individual cell
 		cell_size = board_size / 3
 	else:
-		print("Error: board_size is zero, cannot calculate cell_size.")
 		cell_size = 0  # or any default integer value you prefer
 
 	# get the position of the next player panel
 	player_panel_pos = $PlayerPanel.position
 	new_game()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -65,7 +68,6 @@ func _input(event):
 					create_marker(player, grid_pos * cell_size + Vector2i(cell_size / 2, cell_size / 2))
 					# check if the current player has won
 					if check_win() != 0:
-						print("Game Over")
 						# pause the game
 						get_tree().paused = true
 						# show the game over panel
@@ -75,9 +77,9 @@ func _input(event):
 							$GameOver/GameOverPanel/VBoxContainer/WinnerLabel.text = "Player 1 Wins!"
 						elif winner == -1:
 							$GameOver/GameOverPanel/VBoxContainer/WinnerLabel.text = "Player 2 Wins!"
+						
 					# check for a draw
 					elif moves == 9:
-						print("Game Over")
 						# pause the game
 						get_tree().paused = true
 						# show the game over panel
@@ -120,6 +122,7 @@ func new_game():
 	get_tree().paused = false
 
 
+
 func create_marker(player, position, temp=false):
 	# create a marker and add it to the board as a child
 	if player == 1:
@@ -152,12 +155,22 @@ func check_win():
 			winner = -1
 	return winner
 
-# restarts thegame from game over menu
+# restarts the game from game over menu
 func _on_game_over_restart_game():
 	new_game()
+	
+
+func _on_start_menu_start_game():
+	game_start()
 
 
 func _on_game_over_main_menu():
-	$StartMenu.show()
 	$GameOver.hide()
-	_ready()
+	#clear existing markers
+	get_tree().call_group("circles", "queue_free")
+	get_tree().call_group("crosses", "queue_free")
+	show_start_menu()
+
+
+func _on_start_menu_exit_game():
+	get_tree().quit()

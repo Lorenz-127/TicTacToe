@@ -4,11 +4,15 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mnf8o"]
 bg_color = Color(0.290196, 0.305882, 0.411765, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_color = Color(0.133333, 0.133333, 0.231373, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="SystemFont" id="SystemFont_8hoi4"]
 font_names = PackedStringArray("Impact")
@@ -49,7 +53,10 @@ script = ExtResource("1_ua2lr")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -400.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -450.0
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mnf8o")
