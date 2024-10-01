@@ -108,6 +108,9 @@ visible = false
 visible = false
 
 [connection signal="exit_game" from="StartMenu" to="." method="_on_start_menu_exit_game"]
+[connection signal="game_mode" from="StartMenu" to="." method="_on_start_menu_game_mode"]
+[connection signal="open_options" from="StartMenu" to="." method="_on_start_menu_open_options"]
 [connection signal="start_game" from="StartMenu" to="." method="_on_start_menu_start_game"]
 [connection signal="main_menu" from="GameOver" to="." method="_on_game_over_main_menu"]
 [connection signal="restart_game" from="GameOver" to="." method="_on_game_over_restart_game"]
+[connection signal="back_to_main" from="OptionsMenu" to="." method="_on_options_menu_back_to_main"]

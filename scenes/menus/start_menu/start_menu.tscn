@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd2xadr672516"]
+[gd_scene load_steps=9 format=3 uid="uid://cd2xadr672516"]
 
 [ext_resource type="Script" path="res://scenes/menus/start_menu/start_menu.gd" id="1_ua2lr"]
 
@@ -17,6 +17,27 @@ corner_radius_bottom_left = 6
 [sub_resource type="SystemFont" id="SystemFont_8hoi4"]
 font_names = PackedStringArray("Impact")
 subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_e2xxj"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqgnj"]
+bg_color = Color(0.788235, 0.678431, 0.654902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133333, 0.133333, 0.231373, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0.603922, 0.658824, 0.847059, 1)
+shadow_offset = Vector2(2, 1)
 
 [sub_resource type="Theme" id="Theme_mcq5p"]
 
@@ -107,6 +128,15 @@ size_flags_vertical = 4
 theme_override_constants/separation = 10
 alignment = 1
 
+[node name="GameModeButton" type="Button" parent="MarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.133333, 0.133333, 0.231373, 1)
+theme_override_fonts/font = SubResource("SystemFont_e2xxj")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_sqgnj")
+text = "Game Mode"
+
 [node name="StartButton" type="Button" parent="MarginContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -136,6 +166,7 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_th3p5")
 text = "Exit"
 
+[connection signal="pressed" from="MarginContainer/ButtonContainer/GameModeButton" to="." method="_on_game_mode_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
