@@ -44,3 +44,7 @@ This game is built with Godot Engine. To run or modify the game, you'll need:
 ## License
 
 MIT Licence
+
+## Credits
+
+The ispiration comes from this [YouTube Tutorial](https://youtu.be/w6leMEr1aGo) by [Coding With Russ](https://www.youtube.com/@CodingWithRuss)
