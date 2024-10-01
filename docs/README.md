@@ -11,14 +11,16 @@ This is a simple Tic Tac Toe game implemented using the Godot game engine. The g
 - Two-player gameplay (X and O)
 - Game over screen showing the winner or a tie
 - Option to restart the game or return to the main menu after a game ends
+- Game mode options to switch between PvP and PvE (AI)
 
 ## How to Play
 
 1. Launch the game
 2. Click "Start Game" on the start menu
-3. Players take turns clicking on empty cells to place their marker (X or O)
-4. The game ends when a player gets three in a row (horizontally, vertically, or diagonally) or when all cells are filled (resulting in a tie)
-5. After the game ends, choose to play again or return to the main menu
+3. Click "Game Mode" to switch between player vs. Player or Player vs. AI
+4. Players take turns clicking on empty cells to place their marker (X or O)
+5. The game ends when a player gets three in a row (horizontally, vertically, or diagonally) or when all cells are filled (resulting in a tie)
+6. After the game ends, choose to play again or return to the main menu
 
 ## Technical Details
 
@@ -31,7 +33,7 @@ This is a simple Tic Tac Toe game implemented using the Godot game engine. The g
 
 - [ ]  Implement the options menu functionality
 - [ ]  Add sound effects and background music
-- [ ]  Create an AI opponent for single-player mode
+- [x]  Create an AI opponent for PvE single-player mode
 - [ ]  Enhance the visual design with animations and particle effects
 - [ ] Export to Desktop, Web, and Mobile
 
