@@ -107,26 +107,6 @@ size_flags_vertical = 4
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="PVEButton" type="Button" parent="MarginContainer/ButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = SubResource("Theme_mcq5p")
-theme_override_colors/font_color = Color(0.133333, 0.133333, 0.231373, 1)
-theme_override_fonts/font = SubResource("SystemFont_bcrf7")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_th3p5")
-text = "PvE"
-
-[node name="PVPButton" type="Button" parent="MarginContainer/ButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = SubResource("Theme_mcq5p")
-theme_override_colors/font_color = Color(0.133333, 0.133333, 0.231373, 1)
-theme_override_fonts/font = SubResource("SystemFont_bcrf7")
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_th3p5")
-text = "PvP"
-
 [node name="BackButton" type="Button" parent="MarginContainer/ButtonContainer"]
 layout_mode = 2
 theme = SubResource("Theme_mcq5p")
@@ -136,6 +116,4 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_th3p5")
 text = "Back"
 
-[connection signal="pressed" from="MarginContainer/ButtonContainer/PVEButton" to="." method="_on_pve_button_pressed"]
-[connection signal="pressed" from="MarginContainer/ButtonContainer/PVPButton" to="." method="_on_pvp_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
